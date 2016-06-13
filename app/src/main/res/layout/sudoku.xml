@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <me.kivalin.sudokusolver.SudokuView
+        android:id="@+id/sudoku"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        >
+
+        <me.kivalin.sudokusolver.SudokuGridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <me.kivalin.sudokusolver.SudokuLabelsView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <me.kivalin.sudokusolver.SudokuDigitSelectorView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </me.kivalin.sudokusolver.SudokuView>
+</FrameLayout>
