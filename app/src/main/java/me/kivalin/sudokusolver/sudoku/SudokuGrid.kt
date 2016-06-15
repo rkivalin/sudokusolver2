@@ -60,6 +60,13 @@ class SudokuGrid(val config: SudokuConfig, val values: Map<SudokuCoord, Int> = e
                 else values.filterKeys { it != coord })
     }
 
+    fun copyWithValues(newValues: Map<SudokuCoord, Int>): SudokuGrid {
+        newValues.forEach { checkValue(it.value) }
+        return SudokuGrid(config,
+                values.plus(newValues.filter { it.value != 0 })
+                    .filterKeys { newValues[it] != 0 })
+    }
+
     private fun checkValue(value: Int) {
         if (value < 0 || value > config.size) {
             throw IllegalArgumentException(String.format(Locale.ROOT,

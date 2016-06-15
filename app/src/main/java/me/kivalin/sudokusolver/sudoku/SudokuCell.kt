@@ -8,9 +8,8 @@ class SudokuCell(
     val candidates: Int
         get() = houses.flatMap { it.cells }
                 .filter { it.value != 0 && it !== this }
-                .map { 1 shl it.value }
-                .fold(0, Int::or)
-                .inv()
+                .map { (1 shl it.value).inv() }
+                .fold(1.shl(grid.config.size).minus(1).shl(1), Int::and)
 
     val houses: List<SudokuHouse>
         get() = grid.houses.filter { it.contains(this) }
